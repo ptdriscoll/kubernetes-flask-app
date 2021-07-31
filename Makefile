@@ -1,10 +1,6 @@
 install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
-		
-install-conda:
-	conda update conda &&\
-		conda install --file requirements.yml	
 
 lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
@@ -26,5 +22,3 @@ run-kube:
 	kubectl apply -f kube.yaml	
 
 all: install lint test
-
-all-conda: install-conda lint test
