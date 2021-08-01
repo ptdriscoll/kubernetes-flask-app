@@ -21,9 +21,8 @@ cd kubernetes-flask-app
 ```
 python -m venv ~/.kubernetes-flask-app
 ```
-```
-source ~/.kubernetes-flask-app/bin/activate
-```
+Unix/macOS: `source ~/.kubernetes-flask-app/bin/activate`
+Windows: `. ~/.kubernetes-flask-app/Scripts/activate`
 
 3. Install Python libraries, lint and test by running `make all` or:
 
@@ -41,6 +40,8 @@ pylint --disable=R,C,W1203,W0702 app.py
 python -m pytest -vv --cov=app app_test.py
 ```
 
+<img src="img/Docker-Desktop.jpg" width="675">
+
 ### Build and run Docker container
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
@@ -48,7 +49,7 @@ python -m pytest -vv --cov=app app_test.py
 2. Build the image locally by running `make build` or:
 
 ```
-docker build -t flask-change:latest 
+docker build -t flask-change:latest . 
 ```
 
 3. Verify container by running `docker image ls`
@@ -65,31 +66,38 @@ docker run -p 8080:8080 flask-change
 curl http://127.0.0.1:8080/change/1/34
 ```
 
-6. Stop running the container by using `control-c`
+6. Stop running the container:
+    - First get the container id: `docker ps -a`
+	- Then run: `docker stop <container-id>`
+	- And remove: `docker rm -f <container-id>`
+	
+<img src="img/Kubernetes-Environment.jpg" width="675">	
 
 ### Run Kubernetes locally
 
-1. Verify Kubernetes is working via docker-desktop context:
+1. Make sure Kubernetes is enabled in Docker Desktop under Settings>Kubernetes  
+
+2. Verify Kubernetes is working via docker-desktop context:
 
 ```
 kubectl get nodes
 ```
 
-2. Set up the load balance service and run the application in Kubernetes by running `make run-kube` or:
+3. Set up the load balance service and run the application in Kubernetes by running `make run-kube` or:
 
 ```
 kubectl apply -f kube.yaml
 ```
 
-3. Verify the container is running with 'kubectl get pods'
+4. Verify the container is running with `kubectl get pods`
 
-4. Describe the balanced service:
+5. Describe the balanced service:
 
 ```
-kubectl describe services hello-python-service
+kubectl describe services kubernetes-flask-app
 ```
 
-5. Invoke the web page using `make invoke` or: 
+6. Invoke the web page using `make invoke` or: 
 
 ```
 curl http://127.0.0.1:8080/change/1/34
@@ -100,7 +108,7 @@ curl http://127.0.0.1:8080/change/1/34
 1. Cleanup the deployment: 
 
 ```
-kubectl delete deployment hello-python
+kubectl delete deployment flask-app
 ```
 
 2. Remove the Python virtual environment:
@@ -120,3 +128,4 @@ rm -rf ~/.kubernetes-flask-app
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - [GitHub: Kubernetes Hello World](https://github.com/noahgift/kubernetes-hello-world-python-flask)
 - [GitHub: flask-change-microservice](https://github.com/noahgift/flask-change-microservice)
+- [Installing packages using pip and virtual environments](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
