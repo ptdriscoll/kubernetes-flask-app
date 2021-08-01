@@ -40,9 +40,9 @@ pylint --disable=R,C,W1203,W0702 app.py
 python -m pytest -vv --cov=app app_test.py
 ```
 
-<img src="img/Docker-Desktop.jpg" width="675">
-
 ### Build and run Docker container
+
+<img src="img/Docker-Desktop.jpg" width="675">
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
@@ -71,9 +71,9 @@ curl http://127.0.0.1:8080/change/1/34
 	- Then run: `docker stop <container-id>`
 	- And remove: `docker rm -f <container-id>`
 	
-<img src="img/Kubernetes-Environment.jpg" width="675">	
-
 ### Run Kubernetes locally
+
+<img src="img/Kubernetes-Environment.jpg" width="675">	
 
 1. Make sure Kubernetes is enabled in Docker Desktop under Settings>Kubernetes  
 
