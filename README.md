@@ -21,8 +21,8 @@ cd kubernetes-flask-app
 ```
 python -m venv ~/.kubernetes-flask-app
 ```
-Unix/macOS: `source ~/.kubernetes-flask-app/bin/activate`  
-Windows: `. ~/.kubernetes-flask-app/Scripts/activate`
+    Unix/macOS: `source ~/.kubernetes-flask-app/bin/activate`  
+    Windows: `. ~/.kubernetes-flask-app/Scripts/activate`
 
 3. Install Python libraries, lint and test by running `make all` or:
 
