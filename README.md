@@ -40,6 +40,14 @@ pylint --disable=R,C,W1203,W0702 app.py
 python -m pytest -vv --cov=app app_test.py
 ```
 
+4. Run the app:
+
+```
+python app.py
+```
+
+5. Open the app at [http://127.0.0.1:8080](http://127.0.0.1:8080). Here's a [sample request](http://127.0.0.1:8080/change/1/34). 
+
 ### Build and run Docker container
 
 <img src="img/Docker-Desktop.jpg" width="675">
