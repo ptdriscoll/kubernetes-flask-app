@@ -13,7 +13,7 @@ build:
 	docker build -t flask-change:latest .
 	
 run:
-	docker run -p 8080:8080 flask-change	
+	docker run -p 127.0.0.1:8080:8080 flask-change	
 	
 invoke:
 	curl http://127.0.0.1:8080/change/1/34	
