@@ -44,7 +44,7 @@ python -m pytest -vv --cov=app app_test.py
 
 <img src="img/Docker-Desktop.jpg" width="675">
 
-1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
+1. Install, open and start [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 2. Build the image locally by running `make build` or:
 
