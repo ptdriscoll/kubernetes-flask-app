@@ -65,7 +65,7 @@ docker build -t flask-change:latest .
 4. Run by using `make run` or:
 
 ```
-docker run -p 8080:8080 flask-change
+docker run -p 127.0.0.1:8080:8080 flask-change
 ``` 
 
 5. In a separate terminal, invoke the web page using `make invoke` or: 
